@@ -1,0 +1,28 @@
+{
+  "name": "gitblame-info",
+  "displayName": "Git Blame Informations",
+  "description": "Affiche les informations git blame de la ligne courante à gauche dans la barre de statut.",
+  "version": "1.1.4",
+  "icon": "icon.jpg",
+  "publisher": "Tewfik",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Tewfik",
+    "Alphaconcept"
+  ],
+  "author": "Tewfik.",
+  "license": "ISC"
+}
