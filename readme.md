@@ -1,23 +1,23 @@
-# Git Blame Informations
+# Git Blame Information
 
-Affiche en temps réel les informations **Git Blame** de la ligne courante directement dans la barre de statut de VS Code.  
-Idéal pour comprendre rapidement **qui a modifié une ligne**, **quand**, et **pourquoi**, sans quitter votre flux de travail.
-
----
-
-## Fonctionnalités
-
-- 📌 Affiche automatiquement l’auteur du commit lié à la ligne courante
-- 🕒 Indique le résumé du commit responsable de la modification
-- 🔄 Mise à jour instantanée lors du déplacement du curseur
-- 🔍 Fonctionne sur tous les fichiers suivis par Git
+Displays real-time **Git Blame** information for the current line directly in VS Code's status bar.  
+Perfect for quickly understanding **who modified a line**, **when**, and **why**, without leaving your workflow.
 
 ---
 
-## Utilisation
+## Features
 
-1. Ouvrez un fichier faisant partie d’un dépôt Git.
-2. Placez votre curseur sur une ligne.
-3. Les informations Git Blame apparaissent automatiquement dans la barre de statut.
+- 📌 Automatically displays the commit author for the current line
+- 🕒 Shows the commit summary responsible for the modification
+- 🔄 Instant update when moving the cursor
+- 🔍 Works on all files tracked by Git
 
-Aucune configuration requise.
+---
+
+## Usage
+
+1. Open a file that is part of a Git repository.
+2. Place your cursor on a line.
+3. Git Blame information appears automatically in the status bar.
+
+No configuration required.
