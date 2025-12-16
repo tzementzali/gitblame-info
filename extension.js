@@ -5,7 +5,7 @@ const path = require("path");
 function activate(context) {
   const item = vscode.window.createStatusBarItem(
     vscode.StatusBarAlignment.Left,
-    1000 // grosse priorité pour qu'il reste bien visible
+    1000
   );
   item.tooltip = "Git blame (ligne courante)";
   context.subscriptions.push(item);
@@ -19,7 +19,6 @@ function activate(context) {
 
     const doc = editor.document;
 
-    // On ne blâme que les fichiers suivis/sauvegardés
     if (doc.isUntitled || doc.isDirty) {
       item.text = "$(person) fichier non sauvegardé";
       item.show();
@@ -38,7 +37,6 @@ function activate(context) {
 
     cp.execFile("git", args, { cwd }, (err, stdout) => {
       if (err || !stdout) {
-        // Pas de blame (fichier non suivi, etc.)
         item.hide();
         return;
       }
