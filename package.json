@@ -5,6 +5,14 @@
   "version": "1.1.4",
   "icon": "icon.jpg",
   "publisher": "Tewfik",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tzementzali/gitblame-info.git"
+  },
+  "homepage": "https://github.com/tzementzali/gitblame-info",
+  "bugs": {
+    "url": "https://github.com/tzementzali/gitblame-info/issues"
+  },
   "engines": {
     "vscode": "^1.70.0"
   },
