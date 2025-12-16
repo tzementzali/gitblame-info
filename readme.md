@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="images/zoom.png" alt="Git Blame Informations" width="900">
+</p>
+
 # Git Blame Information
 
 Displays real-time **Git Blame** information for the current line directly in VS Code's status bar.  
