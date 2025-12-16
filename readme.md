@@ -3,6 +3,8 @@
 Displays real-time **Git Blame** information for the current line directly in VS Code's status bar.  
 Perfect for quickly understanding **who modified a line**, **when**, and **why**, without leaving your workflow.
 
+![Aperçu](images/preview.png)
+
 ---
 
 ## Features
