@@ -23,9 +23,18 @@
   "activationEvents": [
     "onStartupFinished"
   ],
-  "contributes": {},
+  "contributes": {
+    "commands": [
+      {
+        "command": "gitblame-info.showDetails",
+        "title": "Afficher les détails du commit"
+      }
+    ]
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "vsce package",
+    "package:prepublish": "vsce package --pre-release"
   },
   "keywords": [
     "Tewfik",
