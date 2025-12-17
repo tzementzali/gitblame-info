@@ -1,8 +1,8 @@
 {
   "name": "gitblame-info",
   "displayName": "Git Blame Informations",
-  "description": "Affiche les informations git blame de la ligne courante à gauche dans la barre de statut.",
-  "version": "1.2.1",
+  "description": "Displays git blame information for the current line in the left status bar.",
+  "version": "1.3.0",
   "icon": "icon.jpg",
   "publisher": "Tewfik",
   "repository": {
