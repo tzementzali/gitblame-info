@@ -15,13 +15,12 @@ function activate(context) {
     vscode.StatusBarAlignment.Left,
     1000
   );
-  item.command = "gitblame-info.showDetails";
   context.subscriptions.push(item);
 
   // Fonction pour mettre à jour le tooltip avec toutes les informations
   function updateTooltip() {
     if (!blameInfo.commitId) {
-      item.tooltip = "Cliquez pour voir les détails du commit";
+      item.tooltip = "Git blame (ligne courante)";
       return;
     }
 
@@ -32,81 +31,11 @@ function activate(context) {
       : "N/A";
     const message = blameInfo.commitMessage || "Aucun message";
 
-    // Format exact : <NOM UTILISATEUR> - <DATE HEURE DU COMMIT>
+    // Format exact demandé : <NOM UTILISATEUR> - <DATE HEURE DU COMMIT>
     // <COMMIT ID>
     // <COMMIT MESSAGE>
-    item.tooltip = new vscode.MarkdownString(
-      `**${author} - ${dateTime}**\n\n\`${commitId}\`\n\n${message}`
-    );
+    item.tooltip = `${author} - ${dateTime}\n${commitId}\n${message}`;
   }
-
-  // Commande pour afficher les détails du commit dans une tooltip
-  const showDetailsCommand = vscode.commands.registerCommand(
-    "gitblame-info.showDetails",
-    () => {
-      if (!blameInfo.commitId) {
-        return;
-      }
-
-      const dateTime = blameInfo.date || "Date inconnue";
-      const author = blameInfo.author || "Auteur inconnu";
-      const commitId = blameInfo.commitId
-        ? blameInfo.commitId.substring(0, 7)
-        : "N/A";
-      const message = blameInfo.commitMessage || "Aucun message";
-
-      // Créer une tooltip compacte avec QuickPick stylisé comme un bloc
-      const tooltip = vscode.window.createQuickPick();
-      
-      // Format exact demandé : <NOM UTILISATEUR> - <DATE HEURE DU COMMIT>
-      // <COMMIT ID>
-      // <COMMIT MESSAGE>
-      tooltip.title = `${author} - ${dateTime}`;
-      tooltip.placeholder = commitId;
-      
-      // Afficher le message comme un item unique
-      tooltip.items = [
-        {
-          label: message,
-          description: "",
-          alwaysShow: true,
-        },
-      ];
-      
-      // Configuration pour ressembler à une tooltip
-      tooltip.canSelectMany = false;
-      tooltip.ignoreFocusOut = false;
-      tooltip.matchOnDescription = false;
-      tooltip.matchOnDetail = false;
-      tooltip.buttons = [];
-      
-      // Afficher la tooltip
-      tooltip.show();
-
-      // Fermer automatiquement quand on perd le focus ou après un court délai
-      let timeoutId = setTimeout(() => {
-        tooltip.dispose();
-      }, 5000);
-
-      tooltip.onDidHide(() => {
-        clearTimeout(timeoutId);
-        tooltip.dispose();
-      });
-
-      tooltip.onDidAccept(() => {
-        clearTimeout(timeoutId);
-        tooltip.dispose();
-      });
-
-      // Fermer aussi avec Escape
-      tooltip.onDidTriggerButton(() => {
-        clearTimeout(timeoutId);
-        tooltip.dispose();
-      });
-    }
-  );
-
-  context.subscriptions.push(showDetailsCommand);
 
   function formatDateTime(timestamp, timezone) {
     if (!timestamp) return "";

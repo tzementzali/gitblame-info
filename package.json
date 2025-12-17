@@ -23,14 +23,7 @@
   "activationEvents": [
     "onStartupFinished"
   ],
-  "contributes": {
-    "commands": [
-      {
-        "command": "gitblame-info.showDetails",
-        "title": "Afficher les détails du commit"
-      }
-    ]
-  },
+  "contributes": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "vsce package",
